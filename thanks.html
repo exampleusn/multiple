@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+	min-height:100vh;
+	margin:0;
+	max-height:100vh;
+	overflow:hidden;
+	 background-color:#567b8a;
+}
+
+img{
+	border-radius:0.5em;
+}
+
+*{
+	box-sizing:border-box;
+}
+
+.centered{
+	margin:auto;
+	width:max-content;
+}
+.flipbook{
+	margin:3em auto;
+	width:400px;
+	height:300px;
+	position:relative;
+	transform-style: preserve-3d;
+	perspective:1000px;
+
+.leaf{
+	position:absolute;
+	transform-style: preserve-3d;
+	height:100%;
+	width:50%;
+	background-color:#fff;
+	left:50%;
+	transition:transform 1s;
+	transform:rotate3d(0 ,1 , 0, 0deg);
+	transform-origin:left 0px;
+	border:1px solid #000;
+	.page{
+	transform-style: preserve-3d;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+
+&.front{
+	transform:rotate3d(0 ,1 , 0, 0deg) translate3d(0,0,0.1px);
+		&:not(.external){
+		box-shadow: inset 5px 0px 5px -5px #0005;
+				}
+					
+			}
+&.back{
+	transform:rotate3d(0 ,1 , 0, 180deg) translate3d(0,0,0.1px);
+		&:not(.external){
+		box-shadow: inset -5px 0px 5px -5px #0005;
+				}
+			}	
+		}
+&.turned{
+	transform:rotatey(180deg);
+}
+  }
+}
+.disabled{
+	user-select:none;
+	opacity:0.6;
+}
+
+
+/*Book page Styles*/
+
+.page{
+	padding:1em;
+	&.front{
+		border-radius:0em 1em 1em 0;
+	}
+	&.back{
+		border-radius:1em 0em 0em 1em;
+	}
+}
+
+.leaf{
+	background-color:#0000!important;
+}
+
+.pageNumber{
+	font-size:0.75em;
+	position:absolute;
+	bottom:0.5em;
+}
+.front .pageNumber{
+	right:0.75em;
+}
+.back .pageNumber{
+	left:0.75em;
+}
+.contents-row{
+	display:flex;
+	flex-flow:row nowrap;
+	.spacer{
+		flex:1 1;
+		height:1em;
+		border-bottom:1px dashed #000;
+	}
+	.text{
+		flex:0 0 auto;
+	}
+}
+h1,h2,h3{
+	font-family:cursive;
+}
+
+body[onload]{
+	/*Cheesing the preview*/
+	transform:scale(1.5);
+	transform-origin:center top;
+	.leaf:nth-child(1){
+		transform:rotate3d(0, 1, 0, -128deg)!important;
+	}
+	.leaf:nth-child(2){
+		transform:rotate3d(0, 1, 0, -70deg)!important;
+	}
+	.leaf:nth-child(3){
+		transform:rotate3d(0, 1, 0, -40deg)!important;
+	}
+	div.leaf:nth-child(4) > div:nth-child(1){
+		background-color:#e76f51;
+	}
+}
+
+.wrap {
+  height: 100%;
+  position: absolute;
+  right: 45%;
+  margin-top: 6%;
+  text-decoration: none;
+}
+
+.button {
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #9e72a9;
+  box-shadow: 0px 15px 20px rgba(236, 194, 254, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+</style>
+<body>
+    <div class="flipbook centered" id="flipbook">
+		<div class="leaf">
+			<div class="page front title external" style="background-color:#6b5f98;">
+				<center><h2>diary' book</h2></center>
+				<center><h4>All i wanna say to you</h4></center>
+			</div>
+			<div class="page back" style="background-color:#c7e4e0;">
+				<div class="pageNumber">1</div>
+				<h4>To My Parent</h4>
+				<p>to my parents who I love most after my God, thank you for everything you have done for me. Thank you for fighting hard for our happiness. I will always pray that all your tiredness, your sweat, your hard work, and your hunger will be replaced</p>
+			</div>
+		</div>
+		<div class="leaf">
+			<div class="page front" style="background-color:#c7e4e0;">
+				<div class="pageNumber">2</div>
+				<div class="contents-row"> <p>by God's miracle from any direction. I hope you stay healthy until I can make you happy, so that I can prove that your efforts in raising me were not in vain! I'm sorry for not being what you expected, I'm also sorry for having fought with you. My love cannot be expressed in just words, I love you endlessly.</p>
+				</div>
+				<div class="contents-row">
+				</div>
+			</div>
+			<div class="page back" style="background-color:#edc3c3;">
+				<div class="pageNumber">3</div>
+				<h4>To My Sister</h4>
+				<p>for my sister, I don't have much to say to you. maybe this is a difficult, uncertain, and unfair time for you. but I hope you avoid everything bad, I hope you can become a better person, even though you are annoying.. I will still love you.</p>
+			</div>
+		</div>
+		<div class="leaf">
+			<div class="page front"  style="background-color:#edc3c3;">
+				<div class="pageNumber">4</div>
+				<h4>To My Friends</h4>
+				<p>and to all my friends, wherever you are...keep taking care of yourself, don't change, and keep moving forward to achieve what you want to achieve! you are great and I am proud to meet great people like you! keep in touch, I love you guys..don't forget me!</p>
+			</div>
+			<div class="page back external" style="background-color:#6b5f98;"> <p>thank you^^</p>
+			</div>
+			
+			</div>
+		</div>
+	</div>
+	<div class="controls centered">
+		<button id="prevPage">&lt; BACK</button>
+		<button id="nextPage">NEXT &gt;</button>
+	</div>
+
+	<div class="wrap">
+		<button class="button"><a href="index1.html" style="text-decoration: none;">close message</a></button>
+	  </div>
+</body>
+
+
+<script>
+    class FlipBook{
+	constructor(bookElem){
+		this.elems={
+			book:bookElem,
+			leaves:bookElem.querySelectorAll(".leaf"),
+			buttons:{
+				next:document.getElementById("nextPage"),
+				prev:document.getElementById("prevPage")
+			}
+		};
+		this.setupEvents();
+		this.currentPagePosition = 0;
+		this.turnPage(0);
+	}
+	setPagePosition(page,position,index){
+		var transform = "";
+		
+		transform = "translate3d(0,0,"+((position<0?1:-1)*Math.abs(index))+"px)"
+		
+		if(position<0){
+			 transform+="rotate3d(0,1,0,-180deg)";
+			page.classList.add("turned")
+		}else{
+			page.classList.remove("turned")
+		}
+		if(page.style.transform != transform){
+			page.style.transform = transform;
+		}
+	}
+	turnPage(delta){
+		this.currentPagePosition+=delta;
+		if(this.currentPagePosition < 0){
+			this.currentPagePosition = 0;
+			return;
+		}
+		if(this.currentPagePosition > this.elems.leaves.length){
+			this.currentPagePosition = this.elems.leaves.length;
+			return;
+		}
+		this.elems.leaves.forEach((page,index)=>{
+			var pageNumber = index;
+			this.setPagePosition(page,pageNumber-this.currentPagePosition,index);
+		});
+		
+		if(this.currentPagePosition == 0){
+			this.elems.buttons.prev.setAttribute("disabled","disabled");
+		}else
+		if(this.currentPagePosition == this.elems.leaves.length){
+			this.elems.buttons.next.setAttribute("disabled","disabled");
+		}else{
+			this.elems.buttons.next.removeAttribute("disabled");
+			this.elems.buttons.prev.removeAttribute("disabled");
+		}
+	}
+	setupEvents(){
+		document.getElementById("nextPage").addEventListener("click",()=>{
+			this.turnPage(1);	
+		});
+		document.getElementById("prevPage").addEventListener("click",()=>{
+			this.turnPage(-1);	
+		});
+		
+	}
+}
+
+//An example of how to extend the flip book!
+class PlugBook extends FlipBook{
+	/* This is turning out to be way too popular to not plug myself in, The flipbook class is still intact though*/
+	constructor(...args){
+		super(...args);
+		this.pluggable = false;
+	}
+	turnPage(...args){
+		super.turnPage(...args);
+		
+		if(args[0] == 1 && this.pluggable){
+			this.plug();
+			return;
+		}
+		if(args[0] == 1 && this.currentPagePosition == this.elems.leaves.length){
+			this.elems.buttons.next.removeAttribute("disabled")
+			this.pluggable = true;
+			return;
+		}
+		
+		this.pluggable=false;
+	}
+	plug(){
+		window.open(document.getElementById("myStuff").href);
+	}
+}
+var flipBook = new FlipBook(document.getElementById("flipbook"));
+</script>
+</html>
